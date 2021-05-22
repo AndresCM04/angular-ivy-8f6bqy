@@ -1,0 +1,86 @@
+<!-----Campo para crear un libro---->
+<div>
+  <div class="row">
+    <div class="col">
+      <h4>Ingrese los datos</h4>
+      <input type="text" [(ngModel)]="nuevo_libro" placeholder="Nombre">
+    </div>
+    <div class="col">
+      <input type="text" [(ngModel)]="n_price" placeholder="Precio">
+    </div>
+    <div class="col">
+      <input type="text" [(ngModel)]="n_type" placeholder="Tipo">
+    </div>
+  </div>
+  <br>
+  <button (click)="crearLibro()">Crear</button>
+</div>
+<br>
+
+<!-------Itera la variable global 'libros' y cada elemento lo
+-- almacena en la variable 'objLibro'
+-->
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Tipo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of libros">
+        <td scope="row"> {{item.name}}</td>
+        <td>
+          <button (click)="eliminarLibro(item)">Eliminar</button>
+          <button (click)="consultaLibro(item)">Consultar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<br>
+<!--Metodo consultar-->
+<div>
+  <h2>Consultar</h2>
+  {{name}}
+  <br>
+  {{price}}
+  <br>
+  {{type}}
+  <br>
+  {{id}}
+</div>
+<!-- Fin consultar-->
+<br>
+<br>
+<!--Metodo actualizar-->
+<div>
+  <div>
+    <div class="row">
+      <div class="col">
+        <h2>Actualizar</h2> <input type="text" [(ngModel)]="name" placeholder="Nombre" id="a">
+      </div>
+      <div class="col">
+        <input type="text" [(ngModel)]="price" placeholder="Precio"
+  id="b">
+      </div>
+      <div class="col">
+        <input type="text" [(ngModel)]="type" placeholder="Tipo"
+  id="c">
+      </div>
+      <div class="col">
+        <input type="text" [(ngModel)]="id" placeholder="ID"
+  id="d">
+      </div>
+      <br>
+      <div class="col">
+        <button (click)="actualizarLibro()">Actualizar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Fin metodo actualizar-->
